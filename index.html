@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Docker Task using JS</title>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+</head>
+<style>
+    .center {
+	text-align: center;
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+    }
+    
+</style>
+<body class="center">
+    <h1 style="text-align: center;">Welcome to Docker Interface Page</h1>
+    <h2>Key in the command here</h2><input id = "inp" placeholder="Type here..">
+    <pre>
+    <br>
+    <div style="text-align: center;" id="d1">Output will be displayed here</div>
+    <br>
+    </pre>
+    <button onclick="lw()">Click me</button>
+</body>
+</html>
+<script>
+    function lw(){
+        var i= document.getElementById("inp").value
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "http://192.168.0.7/cgi-bin/docker.py?x="+i, true)
+        xhr.send();
+
+        xhr.onload = function(){
+        var Output = xhr.responseText;
+        document.getElementById("d1").innerHTML = Output
+        }
+    }
+</script>
