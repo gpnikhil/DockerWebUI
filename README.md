@@ -55,7 +55,7 @@
    systemctl start httpd
    systemctl start docker
    systemctl enable httpd
-   systemctl eable docker
+   systemctl enable docker
    ```
 
 5. Pull an Docker Image to check if Docker is working on the Instance
